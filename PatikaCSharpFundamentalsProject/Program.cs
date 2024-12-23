@@ -13,16 +13,20 @@ namespace PatikaCSharpFundamentalsProject
                 string option = Console.ReadLine();
                 if (option == "1"|| option == "2" || option == "3")
                 {
+                    Console.Write("\nYükleniyor...");
+                    Thread.Sleep(1300);
+                    Console.Clear();
+
                     switch (option)
                     {
                         case "1":
-                            Console.WriteLine("Rastgele Sayi Bulma Oyunu");
+                            Console.WriteLine("- Rastgele Sayi Bulma Oyunu -");
                             break;
                         case "2":
-                            Console.WriteLine("Hesap Makinesi");
+                            Console.WriteLine("- Hesap Makinesi -");
                             break;
                         case "3":
-                            Console.WriteLine("Ortalama Hesaplama");
+                            Console.WriteLine("- Ortalama Hesaplama -");
                             break;
                     }
                     break;
@@ -33,7 +37,6 @@ namespace PatikaCSharpFundamentalsProject
                     Thread.Sleep(1300);
                     Console.Clear();
                 }
-
             }
         }
     }
