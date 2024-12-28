@@ -23,14 +23,14 @@ namespace PatikaCSharpFundamentalsProject
                             Console.WriteLine("- Random Number Finding Game -");
                             Console.WriteLine("Welcome to the Random Number Finding Game!\nGuess a number between 1 and 100.");
 
-                            //Defines variables
+                            // Defines variables
                             int life = 5;
 
                             // Generates random number 
                             Random random = new Random();
                             int rnd = random.Next(1, 100);
                             
-                            //Wait 1 second
+                            // Wait 1 second
                             Thread.Sleep(1000);
 
                             while (life > 0)
@@ -72,26 +72,26 @@ namespace PatikaCSharpFundamentalsProject
                         case "2":
                             Console.WriteLine("- Calculator -");
                             
-                            //Define variables
+                            // Define variables
                             double firstNumber, secondNumber;
 
                             // Asks for the first number
                             Console.Write("Please enter the first value for the operation: ");
-                            while (!double.TryParse(Console.ReadLine(), out firstNumber)) // Geçerli bir sayı alana kadar tekrar et
+                            while (!double.TryParse(Console.ReadLine(), out firstNumber))
                             {
                                 Console.Write("Invalid value! Please enter a number: ");
                             }
 
                             // Asks for the second number
                             Console.Write("Please enter the second value for the operation: ");
-                            while (!double.TryParse(Console.ReadLine(), out secondNumber)) // Geçerli bir sayı alana kadar tekrar et
+                            while (!double.TryParse(Console.ReadLine(), out secondNumber))
                             {
                                 Console.Write("Invalid value! Please enter a number: ");
                             }
 
                             while(true)
                             {
-                                // // Asks for the operation
+                                // Asks for the operation
                                 Console.Write("Please select the operation you want to perform (+, -, *, /): ");
                                 string operation = Console.ReadLine();
                                 if (operation == "+" || operation == "-" || operation == "*" || operation == "/")
@@ -129,6 +129,49 @@ namespace PatikaCSharpFundamentalsProject
                             break;
                         case "3":
                             Console.WriteLine("- Average Calculation -");
+
+                            // Object creation
+                            Program program = new Program();
+
+                            // Define variables
+                            double firstGrade, secondGrade, thirdGrade, averageGrade;
+                            string letterGrade;
+
+                            // Asks for the first grade
+                            Console.Write("Please enter the first grade: ");
+                            while (!double.TryParse(Console.ReadLine(), out firstGrade))
+                            {
+                                Console.Write("Invalid value! Please enter a grade: ");
+                            }
+
+                            // Asks for the second grade
+                            Console.Write("Please enter the second grade: ");
+                            while (!double.TryParse(Console.ReadLine(), out secondGrade))
+                            {
+                                Console.Write("Invalid value! Please enter a grade: ");
+                            }
+
+                            // Asks for the third grade
+                            Console.Write("Please enter the third grade: ");
+                            while (!double.TryParse(Console.ReadLine(), out thirdGrade))
+                            {
+                                Console.Write("Invalid value! Please enter a grade: ");
+                            }
+
+                            if (firstGrade >= 0 && firstGrade <= 100)
+                            {
+                                // Calculate average of grades
+                                averageGrade = (firstGrade + secondGrade + thirdGrade) / 3;
+
+                                // Call LetterGrade Method
+                                letterGrade = program.LetterGrade(averageGrade);
+
+                                Console.WriteLine($"Average of Grades is {averageGrade}\nLetter Grade is {letterGrade}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("The grade values entered must be between 0 and 100!");
+                            }
                             break;
                     }
                     break;
@@ -142,7 +185,51 @@ namespace PatikaCSharpFundamentalsProject
                 }
             }
         }
+
+        // Letter Grade Method
+        string LetterGrade(double averageGrade)
+        {
+            string letterGrade = string.Empty;
+
+            if (averageGrade >= 90 && averageGrade <= 100)
+            {
+                letterGrade = "AA";
+            }
+            else if (averageGrade >= 85 && averageGrade < 90)
+            {
+                letterGrade = "BA";
+            }
+            else if (averageGrade >= 80 && averageGrade < 85)
+            {
+                letterGrade = "BB";
+            }
+            else if (averageGrade >= 75 && averageGrade < 80)
+            {
+                letterGrade = "CB";
+            }
+            else if (averageGrade >= 70 && averageGrade < 75)
+            {
+                letterGrade = "CC";
+            }
+            else if (averageGrade >= 65 && averageGrade < 70)
+            {
+                letterGrade = "DC";
+            }
+            else if (averageGrade >= 60 && averageGrade < 65)
+            {
+                letterGrade = "DD";
+            }
+            else if (averageGrade >= 55 && averageGrade < 60)
+            {
+                letterGrade = "FD";
+            }
+            else
+            {
+                letterGrade = "FF";
+            }
+
+            return letterGrade;
+        }
+
     }
 }
-
-
