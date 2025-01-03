@@ -189,46 +189,24 @@ namespace PatikaCSharpFundamentalsProject
         // Letter Grade Method
         string LetterGrade(double averageGrade)
         {
-            string letterGrade = string.Empty;
-
             if (averageGrade >= 90 && averageGrade <= 100)
-            {
-                letterGrade = "AA";
-            }
+                return "AA";
             else if (averageGrade >= 85 && averageGrade < 90)
-            {
-                letterGrade = "BA";
-            }
+                return "BA";
             else if (averageGrade >= 80 && averageGrade < 85)
-            {
-                letterGrade = "BB";
-            }
+                return "BB";
             else if (averageGrade >= 75 && averageGrade < 80)
-            {
-                letterGrade = "CB";
-            }
+                return "CB";
             else if (averageGrade >= 70 && averageGrade < 75)
-            {
-                letterGrade = "CC";
-            }
+                return "CC";
             else if (averageGrade >= 65 && averageGrade < 70)
-            {
-                letterGrade = "DC";
-            }
+                return "DC";
             else if (averageGrade >= 60 && averageGrade < 65)
-            {
-                letterGrade = "DD";
-            }
+                return "DD";
             else if (averageGrade >= 55 && averageGrade < 60)
-            {
-                letterGrade = "FD";
-            }
+                return "FD";
             else
-            {
-                letterGrade = "FF";
-            }
-
-            return letterGrade;
+                return "FF";
         }
 
     }
