@@ -10,7 +10,7 @@ namespace PatikaCSharpFundamentalsProject
             while (true)
             {
                 Console.Write("Which program would you like to run?\n1 - Random Number Finding Game\n2 - Calculator\n3 - Average Calculation\nSelect one of the options above: ");
-                string option = Console.ReadLine();
+                string? option = Console.ReadLine();
                 if (option == "1"|| option == "2" || option == "3")
                 {
                     Console.Write("\nLoading...");
@@ -93,7 +93,7 @@ namespace PatikaCSharpFundamentalsProject
                             {
                                 // Asks for the operation
                                 Console.Write("Please select the operation you want to perform (+, -, *, /): ");
-                                string operation = Console.ReadLine();
+                                string? operation = Console.ReadLine();
                                 if (operation == "+" || operation == "-" || operation == "*" || operation == "/")
                                 {
                                     switch (operation)
@@ -139,39 +139,33 @@ namespace PatikaCSharpFundamentalsProject
 
                             // Asks for the first grade
                             Console.Write("Please enter the first grade: ");
-                            while (!double.TryParse(Console.ReadLine(), out firstGrade))
+                            while (!double.TryParse(Console.ReadLine(), out firstGrade) || firstGrade < 0 || firstGrade > 100)
                             {
-                                Console.Write("Invalid value! Please enter a grade: ");
+                                Console.Write("Invalid value! Please enter a grade between 0 and 100: ");
                             }
 
                             // Asks for the second grade
                             Console.Write("Please enter the second grade: ");
-                            while (!double.TryParse(Console.ReadLine(), out secondGrade))
+                            while (!double.TryParse(Console.ReadLine(), out secondGrade) || secondGrade < 0 || secondGrade > 100)
                             {
-                                Console.Write("Invalid value! Please enter a grade: ");
+                                Console.Write("Invalid value! Please enter a grade between 0 and 100: ");
                             }
 
                             // Asks for the third grade
                             Console.Write("Please enter the third grade: ");
-                            while (!double.TryParse(Console.ReadLine(), out thirdGrade))
+                            while (!double.TryParse(Console.ReadLine(), out thirdGrade) || thirdGrade < 0 || thirdGrade > 100)
                             {
-                                Console.Write("Invalid value! Please enter a grade: ");
+                                Console.Write("Invalid value! Please enter a grade between 0 and 100: ");
                             }
 
-                            if (firstGrade >= 0 && firstGrade <= 100)
-                            {
-                                // Calculate average of grades
-                                averageGrade = (firstGrade + secondGrade + thirdGrade) / 3;
+                            // Calculate average of grades
+                            averageGrade = (firstGrade + secondGrade + thirdGrade) / 3;
 
-                                // Call LetterGrade Method
-                                letterGrade = program.LetterGrade(averageGrade);
+                            // Call LetterGrade Method
+                            letterGrade = program.LetterGrade(averageGrade);
 
-                                Console.WriteLine($"Average of Grades is {averageGrade}\nLetter Grade is {letterGrade}");
-                            }
-                            else
-                            {
-                                Console.WriteLine("The grade values entered must be between 0 and 100!");
-                            }
+                            Console.WriteLine($"Average of Grades is {averageGrade}\nLetter Grade is {letterGrade}");
+
                             break;
                     }
                     break;
