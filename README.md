@@ -1,4 +1,4 @@
-# Patika C# Fundamentals Project
+# Patika - C# Fundamentals Project
 
 This project includes three fundamental applications written in C# that cover basic programming concepts. Users can select one of the following options to run:
 
